@@ -9,10 +9,11 @@ const app = () => {
       { name: 'Manu', age: 29 },
       { name: 'Stephanie', age: 26 },
     ],
-    otherState: 'some other value',
   })
 
-  console.log(personsState)
+  const [otherState, setOtherState] = useState('some other value')
+
+  console.log(personsState, otherState)
 
   const switchNameHandler = () => {
     // console.log('Was clicked!')
@@ -23,7 +24,6 @@ const app = () => {
         { name: 'Manu', age: 29 },
         { name: 'Stephanie', age: 27 },
       ],
-      otherState: personsState.otherState,
     })
   }
 
