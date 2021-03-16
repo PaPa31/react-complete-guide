@@ -55,7 +55,7 @@ class App extends Component {
             components - both with inline styles and stylesheets
           </li>
         </ol>
-        <UserInput changed={this.onChangeHandler} />
+        <UserInput changed={this.onChangeHandler} name={this.state.username} />
         <UserOutput name={this.state.username} />
         <UserOutput name="Manu" />
         <UserOutput name="Stephani" />
