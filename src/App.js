@@ -8,6 +8,14 @@ class App extends Component {
   state = {
     username: 'Pash',
   }
+
+  onChangeHandler = (event) => {
+    // console.log('Change')
+    this.setState({
+      username: event.target.value,
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -48,7 +56,7 @@ class App extends Component {
             components - both with inline styles and stylesheets
           </li>
         </ol>
-        <UserInput />
+        <UserInput changed={this.onChangeHandler} name={this.state.username} />
         <UserOutput name={this.state.username} age="28">
           Overwritten!
         </UserOutput>
