@@ -5,6 +5,9 @@ import UserInput from './UserInput/UserInput'
 import UserOutput from './UserOutput/UserOutput'
 
 class App extends Component {
+  state = {
+    username: 'Pash',
+  }
   render() {
     return (
       <div className="App">
@@ -46,7 +49,7 @@ class App extends Component {
           </li>
         </ol>
         <UserInput />
-        <UserOutput name="Max" age="28">
+        <UserOutput name={this.state.username} age="28">
           Overwritten!
         </UserOutput>
         <UserOutput name="Manu" age="29">
