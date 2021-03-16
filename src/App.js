@@ -45,9 +45,9 @@ class App extends Component {
           </li>
         </ol>
         <UserInput />
-        <UserOutput />
-        <UserOutput />
-        <UserOutput />
+        <UserOutput name="Max!!!!" />
+        <UserOutput name="Manu" />
+        <UserOutput name="Stephani" />
       </div>
     )
   }
