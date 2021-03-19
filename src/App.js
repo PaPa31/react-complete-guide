@@ -3,6 +3,13 @@ import './App.css'
 import UserOutput from './UserOutput/UserOutput'
 
 class App extends Component {
+  state = {
+    persons: [
+      { name: 'Pasha', age: 47 },
+      { name: 'Masha', age: 37 },
+      { name: 'Chelsea', age: 1 },
+    ],
+  }
   render() {
     return (
       <div className="App">
@@ -43,13 +50,22 @@ class App extends Component {
             components - both with inline styles and stylesheets
           </li>
         </ol>
-        <UserOutput name="Pasha" age="47">
+        <UserOutput
+          name={this.state.persons[0].name}
+          age={this.state.persons[0].age}
+        >
           Git!
         </UserOutput>
-        <UserOutput name="Masha" age="37">
+        <UserOutput
+          name={this.state.persons[1].name}
+          age={this.state.persons[1].age}
+        >
           Queen!
         </UserOutput>
-        <UserOutput name="Chelsea" age="1">
+        <UserOutput
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].age}
+        >
           Meow!
         </UserOutput>
       </div>
