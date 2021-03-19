@@ -43,9 +43,15 @@ class App extends Component {
             components - both with inline styles and stylesheets
           </li>
         </ol>
-        <UserOutput />
-        <UserOutput />
-        <UserOutput />
+        <UserOutput name="Pasha" age="47">
+          Git!
+        </UserOutput>
+        <UserOutput name="Masha" age="37">
+          Queen!
+        </UserOutput>
+        <UserOutput name="Chelsea" age="1">
+          Meow!
+        </UserOutput>
       </div>
     )
   }
