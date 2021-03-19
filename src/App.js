@@ -10,6 +10,17 @@ class App extends Component {
       { name: 'Chelsea', age: 1 },
     ],
   }
+
+  onChangeHandle = (event) => {
+    this.setState({
+      person: [
+        { name: event.target.value, age: 48 },
+        { name: 'SuperMasha', age: 38 },
+        { name: 'Chelsea -> Forever!', age: 1 },
+      ],
+    })
+  }
+
   render() {
     return (
       <div className="App">
