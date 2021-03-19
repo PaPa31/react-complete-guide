@@ -1,10 +1,12 @@
 import React from 'react'
 
-const userOutput = () => {
+const userOutput = (props) => {
   return (
     <div>
-      <p>Viva!</p>
-      <p>Cuba!</p>
+      <p>
+        I'm {props.name} and I am {props.age} years old!
+      </p>
+      <p>{props.children}</p>
     </div>
   )
 }
