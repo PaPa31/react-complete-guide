@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+import UserInput from './UserInput/UserInput'
 import UserOutput from './UserOutput/UserOutput'
 
 class App extends Component {
@@ -60,6 +61,7 @@ class App extends Component {
             components - both with inline styles and stylesheets
           </li>
         </ol>
+        <UserInput changed={this.onChangeHandler} />
         <UserOutput
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
