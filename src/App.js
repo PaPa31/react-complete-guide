@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import "./App.css";
+import ValidationComponent from "./ValidationComponent";
 
 const app = () => {
   const [textState, setText] = useState({
     text: "",
+    len: "".length,
   });
 
   const onTypeHandler = (event) => {
     setText({
       text: event.target.value,
+      len: event.target.value.length,
     });
   };
 
@@ -51,6 +54,7 @@ const app = () => {
       <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
       <input type="text" onChange={(event) => onTypeHandler(event)} />
       <p>{textState.text.length}</p>
+      <ValidationComponent leng={textState.len} />
     </div>
   );
 };
