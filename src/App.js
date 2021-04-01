@@ -2,9 +2,21 @@ import React, { Component } from "react";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    text: "",
+  };
+  onTypeHandler = (event) => {
+    this.setState({
+      text: event.target.value,
+    });
+  };
   render() {
+    const for_p = {
+      textAlign: "right",
+    };
     return (
       <div className="App">
+        <p style={for_p}>Practice-4: setState</p>
         <ol>
           <li>
             Create an input field (in App component) with a change listener
@@ -36,6 +48,8 @@ class App extends Component {
           </li>
         </ol>
         <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
+        <input type="text" onChange={(event) => this.onTypeHandler(event)} />
+        <p>{this.state.text.length}</p>
       </div>
     );
   }
