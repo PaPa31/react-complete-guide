@@ -18,6 +18,25 @@ class App extends Component {
       ],
     });
   };
+
+  deleteCharComponent = (charIndex) => {
+    // console.log("click");
+    let chars = this.state.tex[0].text;
+    // console.log(chars);
+    let newStr = chars.split("");
+    newStr.splice(charIndex, 1);
+    chars = newStr.join("");
+    // console.log(chars);
+    this.setState({
+      tex: [
+        {
+          text: chars,
+          len: chars.length,
+        },
+      ],
+    });
+  };
+
   render() {
     const for_p = {
       textAlign: "right",
@@ -56,11 +75,20 @@ class App extends Component {
           </li>
         </ol>
         <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
-        <input type="text" onChange={(event) => this.onTypeHandler(event)} />
+        <input
+          type="text"
+          onChange={(event) => this.onTypeHandler(event)}
+          value={this.state.tex[0].text}
+        />
         <p>{this.state.tex[0].len}</p>
         <ValidationComponent leng={this.state.tex[0].len} />
-        {this.state.tex[0].text.split("").map((ch) => {
-          return <CharComponent char={ch} />;
+        {this.state.tex[0].text.split("").map((ch, index) => {
+          return (
+            <CharComponent
+              char={ch}
+              click={() => this.deleteCharComponent(index)}
+            />
+          );
         })}
       </div>
     );
