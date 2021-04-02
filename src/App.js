@@ -16,6 +16,16 @@ const app = () => {
     });
   };
 
+  const deleteCharComponentHandler = (charIndex) => {
+    let chars = textState.text;
+    chars = chars.slice(0, charIndex) + chars.slice(charIndex + 1);
+
+    setText({
+      text: chars,
+      len: chars.length,
+    });
+  };
+
   const for_p = {
     textAlign: "right",
   };
@@ -53,11 +63,21 @@ const app = () => {
         </li>
       </ol>
       <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
-      <input type="text" onChange={(event) => onTypeHandler(event)} />
+      <input
+        type="text"
+        onChange={(event) => onTypeHandler(event)}
+        value={textState.text}
+      />
       <p>{textState.text.length}</p>
       <ValidationComponent leng={textState.len} />
-      {textState.text.split("").map((ch) => {
-        return <CharComponent char={ch} />;
+      {textState.text.split("").map((ch, index) => {
+        return (
+          <CharComponent
+            char={ch}
+            key={index}
+            click={() => deleteCharComponentHandler(index)}
+          />
+        );
       })}
     </div>
   );
