@@ -1,14 +1,15 @@
 import React from "react";
 
-const charComponent = () => {
+const charComponent = (props) => {
   const style = {
     display: "inline-block",
     padding: "16px",
     textAlign: "center",
     margin: "16px",
     border: "1px solid #ccc",
+    cursor: "pointer",
   };
-  return <div style={style}></div>;
+  return <div style={style}>{props.char}</div>;
 };
 
 export default charComponent;

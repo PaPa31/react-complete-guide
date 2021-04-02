@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import CharComponent from "./CharComponent";
 import ValidationComponent from "./ValidationComponent";
 
 const app = () => {
@@ -55,6 +56,9 @@ const app = () => {
       <input type="text" onChange={(event) => onTypeHandler(event)} />
       <p>{textState.text.length}</p>
       <ValidationComponent leng={textState.len} />
+      {textState.text.split("").map((ch) => {
+        return <CharComponent char={ch} />;
+      })}
     </div>
   );
 };
