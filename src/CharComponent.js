@@ -7,10 +7,11 @@ const charComponent = (props) => {
     textAlign: "center",
     margin: "16px",
     border: "1px solid #ccc",
+    cursor: "pointer",
   };
   return (
-    <div style={style}>
-      <p onClick={props.click}>{props.char}</p>
+    <div style={style} onClick={props.click}>
+      {props.char}
     </div>
   );
 };

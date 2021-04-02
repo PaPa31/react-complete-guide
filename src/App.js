@@ -21,11 +21,17 @@ class App extends Component {
 
   deleteCharComponent = (charIndex) => {
     // console.log("click");
-    let chars = this.state.tex[0].text;
+    let chars = this.state.tex[0].text; // make copy
+    // with objects and arrays you can using
+    // let chars = [...this.state.tex]  // spread operator
+    // let chars = this.state.tex.slice(); // slice method
     // console.log(chars);
-    let newStr = chars.split("");
-    newStr.splice(charIndex, 1);
-    chars = newStr.join("");
+    // let newStr = chars.split("");
+    // console.log(newStr);
+    // newStr.splice(charIndex, 1);
+    // console.log(newStr);
+    // chars = newStr.join("");
+    chars = chars.slice(0, charIndex) + chars.slice(charIndex + 1);
     // console.log(chars);
     this.setState({
       tex: [
@@ -86,6 +92,7 @@ class App extends Component {
           return (
             <CharComponent
               char={ch}
+              key={index}
               click={() => this.deleteCharComponent(index)}
             />
           );
