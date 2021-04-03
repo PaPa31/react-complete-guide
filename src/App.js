@@ -52,7 +52,7 @@ class App extends Component {
           onChange={(event) => this.inputChangeHandler(event)}
         />
         <p>{this.state.userInput.length}</p>
-        <Validation />
+        <Validation inputLength={this.state.userInput.length} />
       </div>
     );
   }
