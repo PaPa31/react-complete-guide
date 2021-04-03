@@ -9,7 +9,7 @@ const char = (props) => {
     border: "1px solid #ccc",
     cursor: "pointer",
   };
-  return <div style={style}></div>;
+  return <div style={style}>{props.char}</div>;
 };
 
 export default char;
