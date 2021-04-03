@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Validation from "./Validation/Validation";
 
 const app = () => {
   const [inputUserState, setInputUserState] = useState({
@@ -45,6 +46,7 @@ const app = () => {
       <hr />
       <input type="text" onChange={(event) => changeInputHandler(event)} />
       <p>{inputUserState.userInput.length}</p>
+      <Validation textLength={inputUserState.userInput.length} />
     </div>
   );
 };
