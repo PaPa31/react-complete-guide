@@ -9,7 +9,11 @@ const char = (props) => {
     border: "1px solid #ccc",
     cursor: "pointer",
   };
-  return <div style={style}>{props.char}</div>;
+  return (
+    <div style={style} onClick={props.clicked}>
+      {props.char}
+    </div>
+  );
 };
 
 export default char;

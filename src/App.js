@@ -12,8 +12,18 @@ const app = () => {
       userInput: event.target.value,
     });
   };
+  const deleteCharHandler = (charIndex) => {
+    const text = inputUserState.userInput.split("");
+    text.splice(charIndex, 1);
+    const updatedText = text.join("");
+    setInputUserState({
+      userInput: updatedText,
+    });
+  };
   const userText = inputUserState.userInput.split("").map((ch, index) => {
-    return <Char char={ch} key={index} />;
+    return (
+      <Char char={ch} key={index} clicked={() => deleteCharHandler(index)} />
+    );
   });
   return (
     <div className="App">
@@ -48,7 +58,11 @@ const app = () => {
       </ol>
       <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
       <hr />
-      <input type="text" onChange={(event) => changeInputHandler(event)} />
+      <input
+        type="text"
+        onChange={(event) => changeInputHandler(event)}
+        value={inputUserState.userInput}
+      />
       <p>{inputUserState.userInput.length}</p>
       <Validation textLength={inputUserState.userInput.length} />
       {userText}
