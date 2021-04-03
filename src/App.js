@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Char from "./Char/Char";
 import Validation from "./Validation/Validation";
 
 const app = () => {
@@ -11,6 +12,9 @@ const app = () => {
       userInput: event.target.value,
     });
   };
+  const userText = inputUserState.userInput.split("").map((ch, index) => {
+    return <Char char={ch} key={index} />;
+  });
   return (
     <div className="App">
       <ol>
@@ -47,6 +51,7 @@ const app = () => {
       <input type="text" onChange={(event) => changeInputHandler(event)} />
       <p>{inputUserState.userInput.length}</p>
       <Validation textLength={inputUserState.userInput.length} />
+      {userText}
     </div>
   );
 };
