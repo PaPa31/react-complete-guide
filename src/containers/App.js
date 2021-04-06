@@ -1,8 +1,8 @@
 // @ts-check
 
 import React, { Component } from "react";
+import Person from "../components/Persons/Person/Person";
 import classes from "./App.css";
-import Person from "./Person/Person";
 class App extends Component {
   state = {
     persons: [
