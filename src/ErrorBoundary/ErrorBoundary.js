@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 
 class ErrorBoundary extends Component {
-  state = {
-    hasError: false,
-    errorMessage: "",
-  };
+  constructor(props) {
+    super(props);
+    this.state = { hasError: null, errorMessage: null };
+  }
+  // state = {
+  //   hasError: false,
+  //   errorMessage: "",
+  // };
 
   componentDidCatch = (error, info) => {
     this.setState({
@@ -14,7 +18,9 @@ class ErrorBoundary extends Component {
   };
   render() {
     if (this.state.hasError) {
-      return <h1>{this.state.errorMessage}</h1>;
+      return (
+        <h1>{this.state.errorMessage && this.state.errorMessage.toString()}</h1>
+      );
     } else {
       return this.props.children;
     }
