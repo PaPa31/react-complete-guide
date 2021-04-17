@@ -1,13 +1,17 @@
 // import axios from "axios";
 import React, { Component } from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
+import asyncComponent from "../../hoc/asyncComponent";
 import "./Blog.css";
-import NewPost from "./NewPost/NewPost";
+// import NewPost from "./NewPost/NewPost";
 import Posts from "./Posts/Posts";
 
+const AsyncNewPost = asyncComponent(() => {
+  return import("./NewPost/NewPost");
+});
 class Blog extends Component {
   state = {
-    auth: false,
+    auth: true,
   };
   render() {
     return (
@@ -47,7 +51,7 @@ class Blog extends Component {
 
         <Switch>
           {this.state.auth ? (
-            <Route path="/new-post" component={NewPost} />
+            <Route path="/new-post" component={AsyncNewPost} />
           ) : null}
 
           <Route path="/posts" component={Posts} />
