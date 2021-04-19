@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Route, Switch } from "react-router-dom";
+import { NavLink, Redirect, Route, Switch } from "react-router-dom";
 import NoMatch from "./components/NoMatch/NoMatch";
 // import "./App.css";
 import Courses from "./containers/Courses/Courses";
@@ -52,6 +52,7 @@ class App extends Component {
           <Route path="/users" component={Users} />
           {/* <Route path="/courses/:courseId" component={Course} /> */}
           <Route path="/courses" component={Courses} />
+          <Redirect from="/all-courses" to="/courses" />
           <Route component={NoMatch} />
         </Switch>
       </div>
