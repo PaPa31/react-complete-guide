@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import App from "./App";
 import "./index.css";
 import registerServiceWorker from "./registerServiceWorker";
@@ -24,7 +24,12 @@ const logger = (store) => {
   };
 };
 
-const store = createStore(rootReducer, applyMiddleware(logger));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(logger))
+);
 
 ReactDOM.render(
   <Provider store={store}>
