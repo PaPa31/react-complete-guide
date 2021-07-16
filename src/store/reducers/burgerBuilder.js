@@ -44,7 +44,7 @@ const reducer = (state = initialState, action) => {
         },
         error: false,
       };
-    case actionTypes.FETCH_INGREDIENTS_FAILD:
+    case actionTypes.FETCH_INGREDIENTS_FAILED:
       return {
         ...state,
         error: true,
