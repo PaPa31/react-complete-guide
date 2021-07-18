@@ -1,3 +1,4 @@
+export { auth } from "./auth";
 export {
   addIngredient,
   initIngredients,
