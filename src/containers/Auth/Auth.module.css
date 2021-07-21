@@ -7,7 +7,10 @@
   padding: 10px;
   box-sizing: border-box;
 }
-
+.Auth Button {
+  display: block;
+  margin: 0 auto !important;
+}
 @media (min-width: 600px) {
   .Auth {
     width: 500px;
