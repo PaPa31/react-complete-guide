@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Auth from "./containers/Auth/Auth";
 import Logout from "./containers/Auth/Logout/Logout";
@@ -36,4 +36,4 @@ const mapDispatchtoProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchtoProps)(App);
+export default withRouter(connect(null, mapDispatchtoProps)(App));
